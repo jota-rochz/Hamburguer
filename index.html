@@ -33,6 +33,7 @@
                             <img :src="maionese">
                             <img :src="hamburguer">
                             <img :src="pao[1]">
+                            <img src="">
                         </div>
                     </div>
                 </div> <!-- Fim seção img -->
@@ -85,7 +86,11 @@
                 pao() {
                     switch(this.inputTipoPao) {
                         case 'gergelim':
-                            return []    
+                            return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
+                        case 'australiano':
+                            return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
+                        default: 
+                            return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
                     }
                 }
             },
