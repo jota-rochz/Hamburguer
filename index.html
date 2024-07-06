@@ -102,6 +102,30 @@
                         </div> <!-- fim col -->
                      </div>
 
+                       <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header"> Tipos de Hamburguer </div> <!-- fim card-header -->
+                                <div class="card-body">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" value="bovino" v-model="inputHamburguer"> 
+                                        <label class="form-check-label"> Bovino </label>
+                                    </div>
+                                    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" value="frango" v-model="inputHamburguer"> 
+                                        <label class="form-check-label"> Frango </label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" value="vegetal" v-model="inputHamburguer"> 
+                                        <label class="form-check-label"> Vegetal </label>
+                                    </div>
+                                </div> <!-- fim card-body -->
+                            </div> <!-- fim card -->
+                        </div> <!-- fim col -->
+                     </div>
+
 
                 </div> <!-- fim col-md-6 -->
                 <!-- fim do pão -->
@@ -118,9 +142,11 @@
                 inputTipoPao: '',
                 inputSalada: [],
                 inputMolhos: [],
+                inputHamburguer: '',
             },
 
-            computed: { /* propriedades computadas  //  reativos*/
+            computed: {
+                 /* propriedades computadas  //  reativos*/
                 pao() {
                     switch(this.inputTipoPao) {
                         case 'gergelim':
@@ -157,6 +183,20 @@
                         return 'imagens/maionese.png'
                     }
                     return 'imagens/padrao/molho.png'
+                },
+
+                hamburguer() {
+                    switch(this.inputHamburguer) {
+                        case 'bovino' :
+                            return 'imagens/bovino.png'
+                        case 'frango' :
+                            return 'imagens/frango.png'
+                        case 'vegetal' :
+                            return 'imagens/soja.png'
+                        default:
+                            return ['imagens/padrao/hamburguer.png']
+                    }
+                    
                 },
                 
             },
