@@ -46,24 +46,17 @@
                                     Tipo do Pão
                                 </div> <!-- fim card-header -->
                                 <div class="card-body">
-
-
-                                    <div class="form-check form-check-inline">
+                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" value="gergelim" v-model="inputTipoPao"> 
-                                       
-
                                         <label class="form-check-label"> Gergelim </label>
                                     </div>
-                                    
+
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" value="australiano" v-model="inputTipoPao"> 
                                         <label class="form-check-label"> Australiano </label>
-                                    </div>
-                                  
+                                    </div>   
                                 </div> <!-- fim card-body -->
                             </div> <!-- fim card -->
-
-
                         </div> <!-- fim col -->
                      </div> <!-- fim row mt-2 -->
 
@@ -74,20 +67,42 @@
                                 <div class="card-header">
                                     Salada
                                 </div> <!-- fim card-header -->
-                                <div class="card-body">
-    
-    
+                                <div class="card-body">   
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="alface" v-model="inputSalada"> 
                                         <label class="form-check-label">Alface</label>
-                                    </div>
-                                  
+                                    </div>                                 
                                 </div> <!-- fim card-body -->
                             </div> <!-- fim card -->
-    
-    
                         </div> <!-- fim col -->
-                     </div> <!-- fim row mt-2 -->
+                     </div> <!-- fim row salada -->
+
+                     <!-- molhos -->
+                     <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header"> Molhos </div> <!-- fim card-header -->
+                                <div class="card-body">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="ketchup" v-model="inputMolhos"> 
+                                        <label class="form-check-label"> Ketchup </label>
+                                    </div>
+                                    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="mostarda" v-model="inputMolhos"> 
+                                        <label class="form-check-label"> Mostarda </label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="maionese" v-model="inputMolhos"> 
+                                        <label class="form-check-label"> Maionese </label>
+                                    </div>
+                                </div> <!-- fim card-body -->
+                            </div> <!-- fim card -->
+                        </div> <!-- fim col -->
+                     </div>
+
+
                 </div> <!-- fim col-md-6 -->
                 <!-- fim do pão -->
             </div> <!-- row -->    
@@ -102,6 +117,7 @@
             data: { /* atributos  //  propriedades */
                 inputTipoPao: '',
                 inputSalada: [],
+                inputMolhos: [],
             },
 
             computed: { /* propriedades computadas  //  reativos*/
@@ -120,7 +136,28 @@
                         return 'imagens/alface.png'
                     }
                     return 'imagens/padrao/alface.png'
-                }
+                },
+
+                ketchup() {
+                    if(this.inputMolhos.includes('ketchup')){
+                        return 'imagens/ketchup.png'
+                    }
+                    return 'imagens/padrao/molho.png'
+                },
+
+                mostarda() {
+                    if(this.inputMolhos.includes('mostarda')) {
+                        return 'imagens/mostarda.png'
+                    }
+                    return 'imagens/padrao/molho.png'
+                },
+
+                maionese() {
+                    if(this.inputMolhos.includes('maionese')) {
+                        return 'imagens/maionese.png'
+                    }
+                    return 'imagens/padrao/molho.png'
+                },
                 
             },
         })
